@@ -1,6 +1,6 @@
-# US Flash News
+# US Flash Feed
 
-**The news moves fast. Stay ahead.** A fast, clear, independent digital newsroom covering politics, business, technology, culture, climate, and world affairs at [usflashnews.com](https://usflashnews.com).
+**The news moves fast. Stay ahead.** A fast, clear, independent digital newsroom covering politics, business, technology, culture, climate, and world affairs at [usflashfeed.com](https://usflashfeed.com).
 
 Built with **Next.js 15 (App Router)**, **Payload CMS v3**, and **PostgreSQL**, with a responsive editorial design system and a purpose-built newsroom workflow.
 
@@ -9,7 +9,7 @@ Built with **Next.js 15 (App Router)**, **Payload CMS v3**, and **PostgreSQL**, 
 ## 🌟 Key Features
 
 - **Editorial Layout & Design**:
-  - Lightning-bolt identity, deep navy and news-red palette, and a compact usflashnews.com wordmark.
+  - Lightning-bolt identity, deep navy and news-red palette, and a compact usflashfeed.com wordmark.
   - Clear masthead, breaking-news ticker, and multi-channel navigation.
   - Compact, ranked **Most Read** sidebar and curated section blocks.
   - Full-width hero coverage, regional beat explorer, and video hub.
@@ -65,8 +65,8 @@ DATABASE_URI=postgresql://uspolicybrief:your_secure_password@localhost:5432/uspo
 PAYLOAD_SECRET=your_secure_32_byte_secret
 
 # Site Config
-NEXT_PUBLIC_SITE_URL=https://usflashnews.com
-NEXT_PUBLIC_SITE_NAME="US Flash News"
+NEXT_PUBLIC_SITE_URL=https://usflashfeed.com
+NEXT_PUBLIC_SITE_NAME="US Flash Feed"
 NEXT_PUBLIC_GA_ID=G-XXXXXXXXXX
 
 # Gemini AI API
@@ -119,6 +119,20 @@ The Payload Admin Panel is accessible at `/admin`.
 
 ---
 
+## Domain rollout
+
+The application, CMS, SEO URLs, and deployment templates target `https://usflashfeed.com` under the name **US Flash Feed**. The local `.env` and `.env.local` site settings use this identity as well.
+
+For the PM2 installation, use `/var/www/usflashfeed`, the `usflashfeed` process in `ecosystem.config.cjs`, and `nginx/usflashfeed.conf` (port 3004). The older port 3003 Nginx template has been removed. Install only the matching Nginx site configuration.
+
+Before deploying, point the apex and `www` DNS records to the server and provision certificates for both names at `/etc/letsencrypt/live/usflashfeed.com/`. Update the server environment, retain or copy the existing uploaded media, and replace the old PM2/Nginx site when switching traffic. Configure redirects from the old domain on the server that still owns its certificate. Deployment requires explicit confirmation.
+
+Database credentials and Docker database/media volume names intentionally retain their existing identifiers so existing content remains available. Keep the existing Compose project name (or explicitly bind its existing volumes) when moving the checkout; changing the project directory can otherwise create fresh volumes. Do not rename databases or volumes as part of the domain switch.
+
+Article page titles and bylines using US Flash News or The Minute Feed are normalized for display. Historical image domains remain allowed for previously published media. The rebrand does not rewrite live CMS records. Confirm analytics, Adskeeper registration, and the new domain's contact mailboxes before launching.
+
+---
+
 ## 🔒 License & Copyright
 
-© 2026 **US Flash News**. All rights reserved.
+© 2026 **US Flash Feed**. All rights reserved.

@@ -33,7 +33,7 @@ export default function ContactForm() {
           Message Received
         </h3>
         <p className="text-sm text-[var(--muted)] leading-relaxed">
-          Thank you for reaching out to US Flash News. Your message has been forwarded to the <strong>{formData.department}</strong> desk.
+          Thank you for reaching out to US Flash Feed. Your message has been forwarded to the <strong>{formData.department}</strong> desk.
         </p>
         <button
           type="button"

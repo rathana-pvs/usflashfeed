@@ -56,11 +56,19 @@ const nextConfig = {
       },
       {
         protocol: 'https',
+        hostname: 'usflashfeed.com',
+      },
+      {
+        protocol: 'https',
         hostname: 'usflashnews.com',
       },
       {
         protocol: 'https',
         hostname: 'www.usflashnews.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'www.usflashfeed.com',
       },
       {
         protocol: 'https',

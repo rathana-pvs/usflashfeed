@@ -1,4 +1,4 @@
-You are a senior full-stack engineer. Build a complete political news website called "The Tribune" using Next.js 14 App Router + Payload CMS 2.x + PostgreSQL + Tailwind CSS.
+You are a senior full-stack engineer. Build a complete political news website called "US Flash Feed" using Next.js 14 App Router + Payload CMS 2.x + PostgreSQL + Tailwind CSS.
 
 ═══════════════════════════════════════════
 TECH STACK
@@ -135,7 +135,7 @@ Access control by role:
 FILE STRUCTURE
 ═══════════════════════════════════════════
 
-the-tribune/
+usflashfeed/
 ├── payload.config.ts
 ├── next.config.js
 ├── tailwind.config.ts
@@ -202,7 +202,7 @@ PAGE SPECIFICATIONS
 
 Layout (top to bottom):
 1. BreakingTicker — full-width red bar, marquee scrolling, shows articles where isBreaking=true
-2. Header — logo "THE TRIBUNE" (Playfair Display, italic), horizontal nav tabs for all 8 categories, search icon, hamburger mobile
+2. Header — logo "US FLASH FEED" (Playfair Display, italic), horizontal nav tabs for all 8 categories, search icon, hamburger mobile
 3. HeroSection:
    - Left 60%: Featured article (isFeatured=true, most recent), full image, gradient overlay, large headline 48px, author chip, category badge
    - Right 40%: 2 secondary featured articles stacked, medium image, headline, excerpt truncated to 2 lines
@@ -369,7 +369,7 @@ CLOUDINARY_CLOUD_NAME=your_cloud_name
 CLOUDINARY_API_KEY=your_api_key
 CLOUDINARY_API_SECRET=your_api_secret
 NEXT_PUBLIC_SITE_URL=http://localhost:3000
-NEXT_PUBLIC_SITE_NAME=The Tribune
+NEXT_PUBLIC_SITE_NAME=US Flash Feed
 
 ═══════════════════════════════════════════
 BUILD ORDER (follow this sequence)

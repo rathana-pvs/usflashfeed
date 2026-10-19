@@ -124,7 +124,7 @@ export interface UserAuthOperations {
   };
 }
 /**
- * News articles published by US Flash News.
+ * News articles published by US Flash Feed.
  *
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "articles".
@@ -259,7 +259,7 @@ export interface Media {
   };
 }
 /**
- * Tribune staff and contributors.
+ * US Flash Feed staff and contributors.
  *
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "authors".

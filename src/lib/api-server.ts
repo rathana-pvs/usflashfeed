@@ -5,7 +5,7 @@ import { mockArticles } from './mockData'
 
 const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL && !process.env.NEXT_PUBLIC_SITE_URL.includes('placeholder'))
   ? process.env.NEXT_PUBLIC_SITE_URL
-  : 'https://usflashnews.com'
+  : 'https://usflashfeed.com'
 
 /** Ensure a cover image URL is always properly formatted. */
 function normalizeImageUrl(url: string | undefined | null): string | undefined {

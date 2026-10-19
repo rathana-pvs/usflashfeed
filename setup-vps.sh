@@ -6,7 +6,7 @@ GREEN='\033[0;32m'
 RED='\033[0;31m'
 NC='\033[0m' # No Color
 
-echo -e "${GREEN}🚀 Starting US Flash News Automated VPS Setup...${NC}"
+echo -e "${GREEN}🚀 Starting US Flash Feed Automated VPS Setup...${NC}"
 
 # 1. Install Docker if not present
 if ! [ -x "$(command -v docker)" ]; then
@@ -33,13 +33,13 @@ echo "🔒 Checking SSL Certificates..."
 # Find any volume matching "certbot_certs" to make it directory-agnostic
 VOLUME_NAME=$(docker volume ls -q | grep certbot_certs | head -n 1)
 
-if [ -n "$VOLUME_NAME" ] && docker run --rm -v "$VOLUME_NAME":/etc/letsencrypt alpine ls /etc/letsencrypt/live/usflashnews.com/fullchain.pem >/dev/null 2>&1; then
+if [ -n "$VOLUME_NAME" ] && docker run --rm -v "$VOLUME_NAME":/etc/letsencrypt alpine ls /etc/letsencrypt/live/usflashfeed.com/fullchain.pem >/dev/null 2>&1; then
     echo -e "${GREEN}✓ SSL Certificates already exist. Skipping certificate generation.${NC}"
 else
     echo "⚠️ SSL Certificates not found. Initiating Let's Encrypt SSL Bootstrap..."
 
     # Fallback email for SSL registration
-    EMAIL="admin@usflashnews.com"
+    EMAIL="admin@usflashfeed.com"
 
     echo "🛑 Ensuring port 80 is free (stopping Nginx)..."
     docker compose -f docker-compose.prod.yml down nginx || true
@@ -47,8 +47,8 @@ else
     echo "🔑 Requesting Let's Encrypt Certificate in Standalone Mode..."
     docker compose -f docker-compose.prod.yml run --rm -p 80:80 --entrypoint "certbot" certbot certonly \
       --standalone \
-      -d usflashnews.com \
-      -d www.usflashnews.com \
+      -d usflashfeed.com \
+      -d www.usflashfeed.com \
       --email "$EMAIL" \
       --agree-tos \
       --no-eff-email
@@ -58,4 +58,4 @@ fi
 echo "⚡ Starting all services..."
 docker compose -f docker-compose.prod.yml up -d db app nginx
 
-echo -e "${GREEN}✅ Setup complete! US Flash News is now running at https://usflashnews.com${NC}"
+echo -e "${GREEN}✅ Setup complete! US Flash Feed is now running at https://usflashfeed.com${NC}"

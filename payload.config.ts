@@ -32,7 +32,7 @@ import { Media } from './src/collections/Media'
 import { Users } from './src/collections/Users'
 import { ShareLinks } from './src/collections/ShareLinks'
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://usflashnews.com'
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://usflashfeed.com'
 
 export default buildConfig({
   sharp,
@@ -42,7 +42,7 @@ export default buildConfig({
       baseDir: path.resolve(dirname),
     },
     meta: {
-      titleSuffix: '— US Flash News CMS',
+      titleSuffix: '— US Flash Feed CMS',
     },
     theme: 'dark',
   },
@@ -83,7 +83,7 @@ export default buildConfig({
     seoPlugin({
       collections: ['articles'],
       uploadsCollection: 'media',
-      generateTitle: ({ doc }: { doc: any }) => doc?.title ? `${doc.title} — US Flash News` : 'US Flash News',
+      generateTitle: ({ doc }: { doc: any }) => doc?.title ? `${doc.title} — US Flash Feed` : 'US Flash Feed',
       generateDescription: ({ doc }: { doc: any }) => doc?.excerpt || '',
     }),
     (config) => {
@@ -133,12 +133,12 @@ export default buildConfig({
   ],
   cors: [
     siteUrl,
-    'https://usflashnews.com',
-    'https://www.usflashnews.com',
+    'https://usflashfeed.com',
+    'https://www.usflashfeed.com',
   ],
   csrf: [
     siteUrl,
-    'https://usflashnews.com',
-    'https://www.usflashnews.com',
+    'https://usflashfeed.com',
+    'https://www.usflashfeed.com',
   ],
 })

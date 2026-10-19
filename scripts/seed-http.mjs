@@ -6,7 +6,7 @@ function parseArgs() {
   const args = process.argv.slice(2)
   const config = {
     url: 'http://localhost:3000',
-    email: 'admin@usflashnews.com',
+    email: 'admin@usflashfeed.com',
     password: 'adminpassword123',
     clean: true,
     delayMs: 300,
@@ -26,7 +26,7 @@ const sleep = (ms) => new Promise((res) => setTimeout(res, ms))
 
 async function runHttpSeeder() {
   const config = parseArgs()
-  console.log(`🌐 Target US Flash News API: ${config.url}/api`)
+  console.log(`🌐 Target US Flash Feed API: ${config.url}/api`)
   console.log(`👤 Authenticating as: ${config.email}`)
 
   // 1. Authenticate via HTTP POST /api/users/login
@@ -48,7 +48,7 @@ async function runHttpSeeder() {
     console.log('✅ Authenticated successfully via HTTP!')
   } catch (err) {
     console.error('❌ HTTP Authentication failed:', err.message)
-    console.error('💡 Make sure your US Flash News Next.js server is running and the admin user exists.')
+    console.error('💡 Make sure your US Flash Feed Next.js server is running and the admin user exists.')
     process.exit(1)
   }
 
@@ -130,7 +130,7 @@ async function runHttpSeeder() {
           slug: author.slug,
           role: author.role || 'Staff Reporter',
           bio: author.bio || 'Comprehensive news coverage and analysis from our correspondents.',
-          email: author.email || 'news@usflashnews.com',
+          email: author.email || 'news@usflashfeed.com',
         }),
       })
 
@@ -197,7 +197,7 @@ async function runHttpSeeder() {
     }
 
     // Resolve Author ID
-    const authorSlug = art.author?.slug || 'theminutefeed-newsroom'
+    const authorSlug = art.author?.slug || 'usflashfeed-newsroom'
     const resolvedAuthorId = authorMap[authorSlug] || Object.values(authorMap)[0]
 
     // Post Article via HTTP POST /api/articles
@@ -214,7 +214,7 @@ async function runHttpSeeder() {
       isFeatured: !!art.isFeatured,
       publishedAt: art.publishedAt,
       readTime: art.readTime || 3,
-      credit: art.credit || 'US Flash News Wire Service',
+      credit: art.credit || 'US Flash Feed Wire Service',
       og: art.og || {
         metaTitle: art.title,
         metaDescription: art.excerpt,

@@ -11,15 +11,15 @@ export function pingWhosAmungUs(title: string, url?: string) {
     const referrer = document.referrer || ''
 
     // Clean and limit title to 80 chars
-    const cleanTitle = (title || 'US Flash News')
-      .replace(/\s*—\s*US Flash News.*$/i, '')
+    const cleanTitle = (title || 'US Flash Feed')
+      .replace(/\s*—\s*US Flash (?:News|Feed).*$/i, '')
       .replace(/\s*—\s*theminutefeed.*$/i, '')
       .replace(/[\r\n\t]+/g, ' ')
       .trim()
       .slice(0, 80)
       .replace(/(\?=)|(\/)/g, '')
 
-    const pageTitle = encodeURIComponent(cleanTitle || 'US Flash News')
+    const pageTitle = encodeURIComponent(cleanTitle || 'US Flash Feed')
     const pageUrl = encodeURIComponent(targetUrl)
     const pageRef = encodeURIComponent(referrer)
     const randomId = Math.ceil(99999 * Math.random())
@@ -57,7 +57,7 @@ export function VisitorCounter() {
     // Here we handle non-article routes (homepage, categories, static pages)
     if (pathname && !pathname.startsWith('/article/')) {
       const timer = setTimeout(() => {
-        let title = document.title || 'US Flash News'
+        let title = document.title || 'US Flash Feed'
         if (pathname === '/') {
           title = 'Homepage'
         } else {

@@ -12,33 +12,33 @@ export const mockCategories: Record<string, Category> = {
 export const mockAuthors: Author[] = [
   {
     "id": "author-1",
-    "name": "US Flash News Newsroom",
-    "slug": "theminutefeed-newsroom",
+    "name": "US Flash Feed Newsroom",
+    "slug": "usflashfeed-newsroom",
     "role": "International News Network",
     "bio": "Latest news, analysis and features from Al Jazeera's global network.",
     "avatar": {
       "id": "media-a1",
       "filename": "avatar.jpg",
       "url": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=400&auto=format&fit=crop",
-      "alt": "US Flash News Newsroom"
+      "alt": "US Flash Feed Newsroom"
     },
-    "twitter": "theminutefeed",
+    "twitter": "usflashfeed",
     "email": "news@aljazeera.net"
   },
   {
     "id": "author-2",
-    "name": "US Flash News Editorial Desk",
-    "slug": "theminutefeed-editorial",
+    "name": "US Flash Feed Editorial Desk",
+    "slug": "usflashfeed-editorial",
     "role": "Senior Newsroom Desk",
-    "bio": "Latest breaking political and international reporting from US Flash News news team.",
+    "bio": "Latest breaking political and international reporting from US Flash Feed news team.",
     "avatar": {
       "id": "media-a2",
       "filename": "avatar.jpg",
       "url": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=400&auto=format&fit=crop",
-      "alt": "US Flash News Editorial Desk"
+      "alt": "US Flash Feed Editorial Desk"
     },
-    "twitter": "theminutefeed",
-    "email": "news@usflashnews.com"
+    "twitter": "usflashfeed",
+    "email": "news@usflashfeed.com"
   }
 ]
 
@@ -1958,10 +1958,10 @@ export const mockArticles: Article[] = legacyMockArticles.map((article) => ({
   author: article.author && typeof article.author === 'object'
     ? {
         ...article.author,
-        name: article.author.name.replace(/InstantlyFeed/gi, 'US Flash News'),
-        slug: article.author.slug.replace(/(?:pulefeed-stuff|instantlyfeed-editorial)/gi, 'theminutefeed-newsroom'),
-        bio: article.author.bio?.replace(/InstantlyFeed/gi, 'US Flash News'),
-        email: article.author.email?.replace(/(?:instantlyfeed|uspolicybrief)\.com$/i, 'usflashnews.com'),
+        name: article.author.name.replace(/InstantlyFeed/gi, 'US Flash Feed'),
+        slug: article.author.slug.replace(/(?:pulefeed-stuff|instantlyfeed-editorial)/gi, 'usflashfeed-newsroom'),
+        bio: article.author.bio?.replace(/InstantlyFeed/gi, 'US Flash Feed'),
+        email: article.author.email?.replace(/(?:instantlyfeed|uspolicybrief)\.com$/i, 'usflashfeed.com'),
       }
     : article.author,
 }))

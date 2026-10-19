@@ -2,8 +2,8 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'About Us — US Flash News',
-  description: 'Meet US Flash News and learn how we deliver fast, clear, independent reporting without sacrificing context or accuracy.',
+  title: 'About Us — US Flash Feed',
+  description: 'Meet US Flash Feed and learn how we deliver fast, clear, independent reporting without sacrificing context or accuracy.',
 }
 
 export default async function AboutPage() {
@@ -102,7 +102,7 @@ export default async function AboutPage() {
     <div className="bbc-container category-page">
       {/* ── HEADER BLOCK (Matching Category Title Block) ── */}
       <header className="category-title-block">
-        <span className="story-kicker">US Flash News · Independent Journalism</span>
+        <span className="story-kicker">US Flash Feed · Independent Journalism</span>
         <h1 className="category-title">About Us</h1>
         <p className="category-description">
           Fast, clear, independent reporting for people who want to understand the world without living in the news cycle.
@@ -138,7 +138,7 @@ export default async function AboutPage() {
           </div>
           <div className="lg:col-span-7 space-y-4 text-base text-[#1f1f1f] leading-relaxed">
             <p>
-              US Flash News was founded on a simple conviction: staying informed should not require endless scrolling. We make the essential facts clear, useful, and easy to follow.
+              US Flash Feed was founded on a simple conviction: staying informed should not require endless scrolling. We make the essential facts clear, useful, and easy to follow.
             </p>
             <p>
               In an era of algorithm-driven feeds and partisan amplification, we refuse to optimize for outrage. Every briefing and analysis is built for speed, verified for accuracy, and grounded in public interest.
@@ -249,7 +249,7 @@ export default async function AboutPage() {
           href="/contact"
           className="inline-block px-6 py-3 bg-[var(--bbc-red)] text-white text-xs font-bold uppercase tracking-widest hover:bg-[#900] transition-colors"
         >
-          Contact US Flash News
+          Contact US Flash Feed
         </Link>
       </div>
     </div>

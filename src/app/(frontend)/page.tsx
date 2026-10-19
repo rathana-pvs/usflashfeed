@@ -10,7 +10,7 @@ import { Article } from '@/types'
 import { mockArticles } from '@/lib/mockData'
 import { getMediaUrl } from '@/lib/utils'
 
-const siteName = process.env.NEXT_PUBLIC_SITE_NAME || 'US Flash News'
+const siteName = process.env.NEXT_PUBLIC_SITE_NAME || 'US Flash Feed'
 
 export const metadata: Metadata = {
   title: { absolute: `${siteName} — The news moves fast. Stay ahead.` },

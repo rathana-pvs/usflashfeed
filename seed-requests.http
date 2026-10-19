@@ -1,8 +1,8 @@
-### US Flash News Seed REST API Requests
+### US Flash Feed Seed REST API Requests
 ### Use with VS Code REST Client, IntelliJ HTTP Client, Postman, or curl
 
 @baseUrl = http://localhost:3000
-@adminEmail = admin@usflashnews.com
+@adminEmail = admin@usflashfeed.com
 @adminPassword = adminpassword123
 
 ### 1. Authenticate & Obtain JWT Token
@@ -29,11 +29,11 @@ Authorization: JWT {{authToken}}
 Content-Type: application/json
 
 {
-  "name": "US Flash News Newsroom",
-  "slug": "theminutefeed-newsroom",
+  "name": "US Flash Feed Newsroom",
+  "slug": "usflashfeed-newsroom",
   "role": "Staff Reporter",
   "bio": "Comprehensive news coverage and analysis from our correspondents.",
-  "email": "news@usflashnews.com"
+  "email": "news@usflashfeed.com"
 }
 
 @authorId = {{createAuthor.response.body.doc.id}}
@@ -48,7 +48,7 @@ Content-Type: application/json
   "alt": "House Passes Bipartisan Housing Bill Targeting Corporate Homebuyers",
   "caption": "House Passes Bipartisan Housing Bill Targeting Corporate Homebuyers",
   "source": "external",
-  "externalUrl": "https://usflashnews.com/media/sample-cover.jpg"
+  "externalUrl": "https://usflashfeed.com/media/sample-cover.jpg"
 }
 
 @mediaId = {{createMedia.response.body.doc.id}}
@@ -67,7 +67,7 @@ Content-Type: application/json
   "isBreaking": false,
   "isFeatured": true,
   "readTime": 4,
-  "credit": "US Flash News Wire Service",
+  "credit": "US Flash Feed Wire Service",
   "coverImage": "{{mediaId}}",
   "author": "{{authorId}}",
   "tags": [

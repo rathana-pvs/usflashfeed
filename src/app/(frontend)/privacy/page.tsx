@@ -2,8 +2,8 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'Privacy Policy — US Flash News',
-  description: 'Learn how US Flash News collects, protects, and manages reader data and analytics in accordance with global privacy standards.',
+  title: 'Privacy Policy — US Flash Feed',
+  description: 'Learn how US Flash Feed collects, protects, and manages reader data and analytics in accordance with global privacy standards.',
 }
 
 export default async function PrivacyPage() {
@@ -12,7 +12,7 @@ export default async function PrivacyPage() {
       {/* ── HEADER / BREADCRUMB ──────────────────────── */}
       <div className="border-b-2 border-[var(--ink)] pb-4 mb-8">
         <div className="flex items-center gap-2 font-mono text-xs font-bold uppercase tracking-wider text-[var(--bbc-red)] mb-2">
-          <span>US Flash News</span>
+          <span>US Flash Feed</span>
           <span>/</span>
           <span>Legal & Compliance</span>
         </div>
@@ -35,7 +35,7 @@ export default async function PrivacyPage() {
             1. Overview and Commitment to Reader Privacy
           </h2>
           <p className="mb-3">
-            US Flash News (<em>usflashnews.com</em>) is committed to protecting the privacy and fundamental rights of our readers and sources. This Privacy Policy sets out the basis on which any personal data we collect from you, or that you provide to us, will be processed and safeguarded.
+            US Flash Feed (<em>usflashfeed.com</em>) is committed to protecting the privacy and fundamental rights of our readers and sources. This Privacy Policy sets out the basis on which any personal data we collect from you, or that you provide to us, will be processed and safeguarded.
           </p>
           <p>
             We adhere to the core principle of data minimization: we collect only the minimum amount of information necessary to deliver independent journalism, optimize performance, and maintain platform security.
@@ -110,7 +110,7 @@ export default async function PrivacyPage() {
             5. Source Confidentiality and Whistleblower Data
           </h2>
           <p className="mb-3">
-            US Flash News maintains dedicated encrypted channels (including PGP mail and Signal) for confidential tips and source communications. Information received via these channels is subject to strict journalistic privilege and rigorous newsroom source-protection protocols.
+            US Flash Feed maintains dedicated encrypted channels (including PGP mail and Signal) for confidential tips and source communications. Information received via these channels is subject to strict journalistic privilege and rigorous newsroom source-protection protocols.
           </p>
           <p className="text-sm text-[var(--muted)]">
             We do not store source identification records on unencrypted internet-facing servers. For more details on secure communications, visit our{' '}
@@ -146,8 +146,8 @@ export default async function PrivacyPage() {
             If you have questions regarding this Privacy Policy, wish to exercise your privacy rights, or have inquiries regarding data protection practices:
           </p>
           <div className="text-xs font-mono space-y-1">
-            <div><span className="font-bold text-[var(--ink)]">EMAIL:</span> privacy@usflashnews.com</div>
-            <div><span className="font-bold text-[var(--ink)]">LEGAL DESK:</span> legal@usflashnews.com</div>
+            <div><span className="font-bold text-[var(--ink)]">EMAIL:</span> privacy@usflashfeed.com</div>
+            <div><span className="font-bold text-[var(--ink)]">LEGAL DESK:</span> legal@usflashfeed.com</div>
             <div><span className="font-bold text-[var(--ink)]">LOCATION:</span> Washington, D.C., United States</div>
           </div>
         </section>

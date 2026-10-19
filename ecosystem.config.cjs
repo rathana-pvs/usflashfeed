@@ -1,8 +1,8 @@
 module.exports = {
   apps: [
     {
-      name: 'usflashnews',
-      cwd: '/var/www/usflashnews',
+      name: 'usflashfeed',
+      cwd: '/var/www/usflashfeed',
       script: '.next/standalone/server.js',
       exec_mode: 'fork',
       instances: 1,

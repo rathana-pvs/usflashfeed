@@ -33,7 +33,7 @@ const menuGroups = [
     ],
   },
   {
-    title: 'US Flash News',
+    title: 'US Flash Feed',
     links: [
       ['About Us', '/about'],
       ['Contact', '/contact'],
@@ -125,7 +125,7 @@ export default function Header() {
         <div className="search-drawer animate-in fade-in duration-200">
           <form className="bbc-container search-form" role="search" onSubmit={handleSearchSubmit}>
             <label className="skip-link" htmlFor="site-search">
-              Search US Flash News
+              Search US Flash Feed
             </label>
             <input
               id="site-search"

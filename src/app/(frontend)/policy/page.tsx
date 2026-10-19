@@ -2,8 +2,8 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'Editorial Policy & Standards — US Flash News',
-  description: 'Editorial guidelines, verification processes, corrections policies, and journalistic standards at US Flash News.',
+  title: 'Editorial Policy & Standards — US Flash Feed',
+  description: 'Editorial guidelines, verification processes, corrections policies, and journalistic standards at US Flash Feed.',
 }
 
 export default async function PolicyPage() {
@@ -12,7 +12,7 @@ export default async function PolicyPage() {
       {/* ── HEADER / BREADCRUMB ──────────────────────── */}
       <div className="border-b-2 border-[var(--ink)] pb-4 mb-8">
         <div className="flex items-center gap-2 font-mono text-xs font-bold uppercase tracking-wider text-[var(--bbc-red)] mb-2">
-          <span>US Flash News</span>
+          <span>US Flash Feed</span>
           <span>/</span>
           <span>Editorial Standards & Governance</span>
         </div>
@@ -20,7 +20,7 @@ export default async function PolicyPage() {
           Editorial Policy & Publishing Standards
         </h1>
         <p className="mt-4 text-lg text-[var(--muted)] leading-relaxed">
-          US Flash News adheres to rigorous journalistic integrity, factual accuracy, transparent sourcing, and non-partisan analysis.
+          US Flash Feed adheres to rigorous journalistic integrity, factual accuracy, transparent sourcing, and non-partisan analysis.
         </p>
       </div>
 
@@ -33,7 +33,7 @@ export default async function PolicyPage() {
             1. Fact-Checking and Verification Process
           </h2>
           <p className="mb-3">
-            Every article, analysis piece, and breaking news report published on US Flash News undergoes multi-tier editorial review. Our reporters verify claims against primary documentation, including:
+            Every article, analysis piece, and breaking news report published on US Flash Feed undergoes multi-tier editorial review. Our reporters verify claims against primary documentation, including:
           </p>
           <ul className="list-disc pl-6 space-y-2 text-sm text-[var(--muted)] mb-3">
             <li>Official congressional records, bill texts, committee transcripts, and Roll Call voting databases.</li>
@@ -64,8 +64,8 @@ export default async function PolicyPage() {
           </ul>
           <p className="text-sm text-[var(--muted)]">
             Readers wishing to flag an inaccuracy are encouraged to contact our fact-checking desk at{' '}
-            <a href="mailto:corrections@usflashnews.com" className="text-[var(--bbc-red)] font-bold underline">
-              corrections@usflashnews.com
+            <a href="mailto:corrections@usflashfeed.com" className="text-[var(--bbc-red)] font-bold underline">
+              corrections@usflashfeed.com
             </a>
             .
           </p>
@@ -132,7 +132,7 @@ export default async function PolicyPage() {
               Read Privacy Policy →
             </Link>
             <Link href="/about" className="text-[var(--ink)] hover:underline">
-              About US Flash News →
+              About US Flash Feed →
             </Link>
             <Link href="/contact" className="text-[var(--ink)] hover:underline">
               Contact the Newsroom →

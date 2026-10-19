@@ -6,8 +6,8 @@ import { getArticles } from '@/lib/api-server'
 import { Article } from '@/types'
 
 export const metadata: Metadata = {
-  title: 'Live Coverage — US Flash News',
-  description: 'Follow breaking news and live coverage in real time from US Flash News.',
+  title: 'Live Coverage — US Flash Feed',
+  description: 'Follow breaking news and live coverage in real time from US Flash Feed.',
 }
 
 export const revalidate = 60

@@ -24,14 +24,14 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const articleSlug = Array.isArray(rawSlug) ? rawSlug[rawSlug.length - 1] : rawSlug
 
   const article = await getArticle(articleSlug)
-  if (!article) return { title: 'Story Not Found — US Flash News' }
+  if (!article) return { title: 'Story Not Found — US Flash Feed' }
 
   const envUrl = process.env.NEXT_PUBLIC_SITE_URL
-  const siteUrl = envUrl && !envUrl.includes('placeholder.com') ? envUrl : 'https://usflashnews.com'
-  const siteName = process.env.NEXT_PUBLIC_SITE_NAME || 'US Flash News'
+  const siteUrl = envUrl && !envUrl.includes('placeholder.com') ? envUrl : 'https://usflashfeed.com'
+  const siteName = process.env.NEXT_PUBLIC_SITE_NAME || 'US Flash Feed'
   const title = (article.meta?.title || article.title)
-    .replace(/\s*[—–|\-]\s*(?:The Minute Feed|US Flash News|theminutefeed(?:\.com)?|usflashnews(?:\.com)?)\s*$/i, '')
-  const authorName = article.author?.name?.replace(/The Minute Feed/gi, siteName) || `${siteName} Staff`
+    .replace(/\s*[—–|\-]\s*(?:The Minute Feed|US Flash News|US Flash Feed|usflashnews(?:\.com)?|theminutefeed(?:\.com)?|usflashfeed(?:\.com)?)\s*$/i, '')
+  const authorName = article.author?.name?.replace(/The Minute Feed|US Flash News/gi, siteName) || `${siteName} Staff`
   const description = article.meta?.description || article.excerpt
   const ogImageUrl = getMediaUrl(article.coverImage)
 
@@ -78,8 +78,8 @@ export default async function ArticlePage({ params }: PageProps) {
   }
 
   const envUrl = process.env.NEXT_PUBLIC_SITE_URL
-  const siteUrl = envUrl && !envUrl.includes('placeholder.com') ? envUrl : 'https://usflashnews.com'
-  const siteName = process.env.NEXT_PUBLIC_SITE_NAME || 'US Flash News'
+  const siteUrl = envUrl && !envUrl.includes('placeholder.com') ? envUrl : 'https://usflashfeed.com'
+  const siteName = process.env.NEXT_PUBLIC_SITE_NAME || 'US Flash Feed'
 
   if (trackingKey) {
     fetch(`${siteUrl}/api/track-share-link?key=${encodeURIComponent(trackingKey)}`, {
@@ -96,7 +96,7 @@ export default async function ArticlePage({ params }: PageProps) {
 
   if (!article) notFound()
 
-  const authorName = article.author?.name?.replace(/The Minute Feed/gi, siteName) || `${siteName} Staff`
+  const authorName = article.author?.name?.replace(/The Minute Feed|US Flash News/gi, siteName) || `${siteName} Staff`
   const allArticles = allArticlesRes.docs || []
   const heroImage = getMediaUrl(article.coverImage)
   const keyPoints = extractKeyPoints(article)

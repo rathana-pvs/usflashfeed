@@ -24,7 +24,7 @@ export const dict = {
 
   // New UI Labels
   tagline: 'Real-Time Global & Political News',
-  organization: 'US Flash News',
+  organization: 'US Flash Feed',
   footerTagline: 'Independent news delivered with speed and integrity. Sharp analysis on politics, governance, and world affairs.',
   copyright: 'All rights reserved.',
   viewAll: 'View All',

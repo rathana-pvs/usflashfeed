@@ -1,3 +1,4 @@
+# Existing database credentials and volume names are retained for data continuity.
 services:
   db:
     image: postgres:15-alpine

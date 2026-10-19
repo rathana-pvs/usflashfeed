@@ -5,7 +5,7 @@ export const Authors: CollectionConfig = {
   slug: 'authors',
   admin: {
     useAsTitle: 'name',
-    description: 'Tribune staff and contributors.',
+    description: 'US Flash Feed staff and contributors.',
   },
   access: {
     read: () => true,

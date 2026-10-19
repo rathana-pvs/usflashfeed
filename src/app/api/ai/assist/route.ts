@@ -103,7 +103,7 @@ async function scrapeUrlDirectly(url: string) {
     .replace(/\s*-\s*instantlyfeed$/i, '')
     .replace(/\s*–\s*pulefeed$/i, '')
     .replace(/\s*-\s*pulefeed$/i, '')
-    .replace(/\s*[–-]\s*(?:us\s+flash\s+news|usflashnews(?:\.com)?|the\s+minute\s+feed|theminutefeed)$/i, '')
+    .replace(/\s*[–-]\s*(?:us\s+flash\s+(?:news|feed)|usflashnews(?:\.com)?|usflashfeed(?:\.com)?|the\s+minute\s+feed|theminutefeed)$/i, '')
     .replace(/\s*[-–|•]\s*(?:BBC News|CNN|Reuters|AP News|Fox News|Politico|The Guardian|The New York Times|The Washington Post|Bloomberg|Forbes|Al Jazeera|arnewspost\.info|instantlyfeed|pulefeed|us\s*policy\s*brief|the\s+minute\s+feed|theminutefeed)[\s\S]*$/i, '')
     .replace(/[…\.\s]+$/, '')
     .trim()
@@ -594,7 +594,7 @@ async function scrapeUrlDirectly(url: string) {
     rawBlocks.push(...filteredBlocks)
   }
 
-  const siteName = process.env.NEXT_PUBLIC_SITE_NAME || 'US Flash News'
+  const siteName = process.env.NEXT_PUBLIC_SITE_NAME || 'US Flash Feed'
   const metaTitle = title.endsWith(` - ${siteName}`) ? title : `${title.substring(0, 45)} - ${siteName}`
   
   // Clean fallback excerpt from first clean paragraph (strictly under 160 chars)
@@ -1209,7 +1209,7 @@ export async function POST(req: NextRequest) {
               result.videoDuration = '03:45'
             }
 
-            const siteName = process.env.NEXT_PUBLIC_SITE_NAME || 'US Flash News'
+            const siteName = process.env.NEXT_PUBLIC_SITE_NAME || 'US Flash Feed'
 
             const aiPrompt = `Given the news article title "${result.title}" and context:\n"${rawParagraphsText.substring(0, 3000)}"\n\nGenerate article metadata strictly following these rules:
 1. "excerpt": A punchy, high-engagement lead summary strictly under 160 characters. Do NOT repeat or duplicate the title.
@@ -1246,7 +1246,7 @@ Return valid JSON with exact keys: { "excerpt", "region", "dateline", "tags", "m
       return NextResponse.json({ error: 'Title or content is required for AI generation' }, { status: 400 })
     }
 
-    const siteName = process.env.NEXT_PUBLIC_SITE_NAME || 'US Flash News'
+    const siteName = process.env.NEXT_PUBLIC_SITE_NAME || 'US Flash Feed'
 
     let prompt = ''
     if (action === 'full') {
@@ -1291,7 +1291,7 @@ Return JSON with exact keys: { "excerpt", "tags", "metaTitle", "metaDescription"
 function enforceSeoLimits(seoData: any) {
   if (!seoData) return seoData
 
-  const siteName = process.env.NEXT_PUBLIC_SITE_NAME || 'US Flash News'
+  const siteName = process.env.NEXT_PUBLIC_SITE_NAME || 'US Flash Feed'
 
   // 1. Meta Title: 50–60 characters
   if (seoData.metaTitle && typeof seoData.metaTitle === 'string') {

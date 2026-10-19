@@ -16,7 +16,7 @@ For the news application, content summarization and AI formatting follow strict 
   Write **EXACTLY 4 paragraphs** (no more, no less).
   Each paragraph **MUST be at most 35 words long**.
 - **SEO Metadata Limits**:
-  - Meta Title: **50–60 characters** (including `- The Minute Feed` suffix).
+  - Meta Title: **50–60 characters** (including `- US Flash Feed` suffix).
   - Meta Description: **100–150 characters**.
 
 ---

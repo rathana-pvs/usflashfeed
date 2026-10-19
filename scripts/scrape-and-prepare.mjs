@@ -35,20 +35,20 @@ async function scrapeAndPrepare() {
 
     // Handle Author
     let authorData = {
-      name: 'US Flash News Editorial Desk',
-      slug: 'theminutefeed-editorial',
+      name: 'US Flash Feed Editorial Desk',
+      slug: 'usflashfeed-editorial',
       role: 'Senior Newsroom Desk',
-      bio: 'Latest breaking political and international reporting from US Flash News news team.',
-      email: 'news@usflashnews.com',
+      bio: 'Latest breaking political and international reporting from US Flash Feed news team.',
+      email: 'news@usflashfeed.com',
     }
 
     if (raw.author && typeof raw.author === 'object' && raw.author.name) {
       authorData = {
-        name: (raw.author.name === 'Toch Media' || raw.author.name === 'Pulefeed Newsroom') ? 'US Flash News Newsroom' : raw.author.name,
-        slug: raw.author.slug || 'theminutefeed-newsroom',
+        name: (raw.author.name === 'Toch Media' || raw.author.name === 'Pulefeed Newsroom') ? 'US Flash Feed Newsroom' : raw.author.name,
+        slug: raw.author.slug || 'usflashfeed-newsroom',
         role: raw.author.role || 'Staff Reporter',
         bio: raw.author.bio || 'Comprehensive news coverage and analysis from our correspondents.',
-        email: raw.author.email || 'news@usflashnews.com',
+        email: raw.author.email || 'news@usflashfeed.com',
       }
     }
     authorMap.set(authorData.slug, authorData)
@@ -145,7 +145,7 @@ async function scrapeAndPrepare() {
         filesize: imageFilesize,
         source: localFilename ? 'local' : 'external',
       },
-      credit: raw.credit || 'US Flash News Wire Service',
+      credit: raw.credit || 'US Flash Feed Wire Service',
       author: authorData,
       tags: tags,
       status: 'published',

@@ -4,7 +4,7 @@ import config from '../../payload.config'
 const fixUrls = async () => {
   const payload = await getPayload({ config })
   const envUrl = process.env.NEXT_PUBLIC_SITE_URL
-  const siteUrl = envUrl && !envUrl.includes('placeholder.com') ? envUrl : 'https://usflashnews.com'
+  const siteUrl = envUrl && !envUrl.includes('placeholder.com') ? envUrl : 'https://usflashfeed.com'
 
   console.log('Fixing Media URLs to be absolute...')
   const media = await payload.find({

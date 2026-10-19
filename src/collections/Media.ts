@@ -108,7 +108,7 @@ export const Media: CollectionConfig = {
       name: 'alt',
       type: 'text',
       required: false,
-      defaultValue: 'US Flash News',
+      defaultValue: 'US Flash Feed',
       admin: {
         description: 'Alt text for accessibility and SEO',
       },

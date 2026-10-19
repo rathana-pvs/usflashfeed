@@ -4,7 +4,7 @@ import fs from 'fs'
 import path from 'path'
 
 const seed = async () => {
-  console.log('🚀 Starting US Flash News Database Seed...')
+  console.log('🚀 Starting US Flash Feed Database Seed...')
   const payload = await getPayload({ config })
 
   // 1. Clear existing data
@@ -31,7 +31,7 @@ const seed = async () => {
 
   // 2. Ensure Admin User
   console.log('\n👤 Ensuring Admin User...')
-  const adminEmail = 'admin@usflashnews.com'
+  const adminEmail = 'admin@usflashfeed.com'
   const adminPassword = 'adminpassword123'
 
   const existingAdmin = await payload.find({
@@ -45,7 +45,7 @@ const seed = async () => {
       data: {
         email: adminEmail,
         password: adminPassword,
-        name: 'US Flash News Admin',
+        name: 'US Flash Feed Admin',
         role: 'admin',
       },
     })
@@ -64,20 +64,20 @@ const seed = async () => {
   const seedData = JSON.parse(fs.readFileSync(seedPath, 'utf-8'))
   const authors = (seedData.authors || []).map((author: any) => ({
     ...author,
-    name: author.name?.replace(/(?:InstantlyFeed|Pulefeed|The DC Minute)/gi, 'US Flash News'),
-    slug: author.slug?.replace(/(?:pulefeed-stuff|instantlyfeed-editorial|pulefeed-editorial)/gi, 'theminutefeed-newsroom'),
-    bio: author.bio?.replace(/(?:InstantlyFeed|Pulefeed|The DC Minute)/gi, 'US Flash News'),
-    email: author.email?.replace(/(?:instantlyfeed|pulefeed|uspolicybrief|thedcminute)\.(?:com|tech)$/i, 'usflashnews.com'),
+    name: author.name?.replace(/(?:InstantlyFeed|Pulefeed|The DC Minute)/gi, 'US Flash Feed'),
+    slug: author.slug?.replace(/(?:pulefeed-stuff|instantlyfeed-editorial|pulefeed-editorial)/gi, 'usflashfeed-newsroom'),
+    bio: author.bio?.replace(/(?:InstantlyFeed|Pulefeed|The DC Minute)/gi, 'US Flash Feed'),
+    email: author.email?.replace(/(?:instantlyfeed|pulefeed|uspolicybrief|thedcminute)\.(?:com|tech)$/i, 'usflashfeed.com'),
   }))
   const articles = (seedData.articles || []).map((article: any) => ({
     ...article,
-    credit: article.credit ? article.credit.replace(/(?:InstantlyFeed|Pulefeed|The DC Minute)/gi, 'US Flash News') : 'US Flash News Wire Service',
+    credit: article.credit ? article.credit.replace(/(?:InstantlyFeed|Pulefeed|The DC Minute)/gi, 'US Flash Feed') : 'US Flash Feed Wire Service',
     author: article.author && {
       ...article.author,
-      name: article.author.name?.replace(/(?:InstantlyFeed|Pulefeed|The DC Minute)/gi, 'US Flash News'),
-      slug: article.author.slug?.replace(/(?:pulefeed-stuff|instantlyfeed-editorial|pulefeed-editorial)/gi, 'theminutefeed-newsroom'),
-      bio: article.author.bio?.replace(/(?:InstantlyFeed|Pulefeed|The DC Minute)/gi, 'US Flash News'),
-      email: article.author.email?.replace(/(?:instantlyfeed|pulefeed|uspolicybrief|thedcminute)\.(?:com|tech)$/i, 'usflashnews.com'),
+      name: article.author.name?.replace(/(?:InstantlyFeed|Pulefeed|The DC Minute)/gi, 'US Flash Feed'),
+      slug: article.author.slug?.replace(/(?:pulefeed-stuff|instantlyfeed-editorial|pulefeed-editorial)/gi, 'usflashfeed-newsroom'),
+      bio: article.author.bio?.replace(/(?:InstantlyFeed|Pulefeed|The DC Minute)/gi, 'US Flash Feed'),
+      email: article.author.email?.replace(/(?:instantlyfeed|pulefeed|uspolicybrief|thedcminute)\.(?:com|tech)$/i, 'usflashfeed.com'),
     },
   }))
   console.log(`📦 Loaded ${articles.length} articles and ${authors.length} authors from seed file`)
@@ -97,7 +97,7 @@ const seed = async () => {
       slug: author.slug,
       bio: author.bio || '',
       role: author.role || 'Staff Reporter',
-      email: author.email || 'news@usflashnews.com',
+      email: author.email || 'news@usflashfeed.com',
     }
 
     if (existing.docs.length === 0) {
@@ -173,7 +173,7 @@ const seed = async () => {
     }
 
     // Author ID resolution
-    const authorSlug = art.author?.slug || 'theminutefeed-newsroom'
+    const authorSlug = art.author?.slug || 'usflashfeed-newsroom'
     const resolvedAuthorId = authorMap[authorSlug] || Object.values(authorMap)[0]
 
     // Create Article Record
@@ -190,7 +190,7 @@ const seed = async () => {
       isFeatured: !!art.isFeatured,
       publishedAt: art.publishedAt,
       readTime: art.readTime || 3,
-      credit: art.credit || 'US Flash News Wire Service',
+      credit: art.credit || 'US Flash Feed Wire Service',
       og: art.og || {
         metaTitle: art.title,
         metaDescription: art.excerpt,
@@ -215,7 +215,7 @@ const seed = async () => {
   }
 
   console.log(`\n==============================================`)
-  console.log(`🎉 US Flash News Seed Completed Successfully!`)
+  console.log(`🎉 US Flash Feed Seed Completed Successfully!`)
   console.log(`- Total Articles Seeded: ${successCount} / ${articles.length}`)
   console.log(`- Admin Credentials: ${adminEmail} / ${adminPassword}`)
   console.log(`==============================================\n`)

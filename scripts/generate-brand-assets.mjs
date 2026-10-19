@@ -34,4 +34,4 @@ header.writeUInt32LE(png.length, 14)
 header.writeUInt32LE(22, 18)
 await writeFile('public/favicon.ico', Buffer.concat([header, png]))
 
-console.log(`Generated ${outputs.length + 1} US Flash News brand assets.`)
+console.log(`Generated ${outputs.length + 1} US Flash Feed brand assets.`)

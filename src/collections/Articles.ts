@@ -9,7 +9,7 @@ export const Articles: CollectionConfig = {
   admin: {
     useAsTitle: 'title',
     defaultColumns: ['title', 'category', 'author', 'status', 'publishedAt'],
-    description: 'News articles published by US Flash News.',
+    description: 'News articles published by US Flash Feed.',
   },
   access: {
     read: ({ req }) => {

@@ -8,7 +8,7 @@ async function verify() {
   const authors = await payload.find({ collection: 'authors', limit: 5 })
   const users = await payload.find({ collection: 'users', limit: 5 })
 
-  console.log(`📊 US Flash News Database Summary:`)
+  console.log(`📊 US Flash Feed Database Summary:`)
   console.log(`- Articles: ${articles.totalDocs}`)
   console.log(`- Media: ${media.totalDocs}`)
   console.log(`- Authors: ${authors.totalDocs}`)
