@@ -6,7 +6,7 @@ import { usePathname } from 'next/navigation'
 export function pingWhosAmungUs(title: string, url?: string) {
   if (typeof window === 'undefined') return
   try {
-    const siteKey = 'br9ezsevbf'
+    const siteKey = 'ajwqz5hcg6'
     const targetUrl = url || window.location.href
     const referrer = document.referrer || ''
 
