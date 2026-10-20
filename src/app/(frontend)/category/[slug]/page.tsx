@@ -5,12 +5,15 @@ import Image from 'next/image'
 import { getArticles } from '@/lib/api-server'
 import { getMediaUrl } from '@/lib/utils'
 import MostRead from '@/components/sections/MostRead'
+import AdskeeperWidget from '@/components/ads/AdskeeperWidget'
 import { Article } from '@/types'
 import { mockArticles } from '@/lib/mockData'
 
 interface CategoryPageProps {
   params: Promise<{ slug: string }>
 }
+
+const widgetFeed = process.env.NEXT_PUBLIC_ADS_KEEPER_WIDGET_FEED || ''
 
 const categoryDescriptions: Record<string, string> = {
   world: 'The latest international news, analysis and eyewitness reporting from correspondents around the world.',
@@ -142,6 +145,7 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
             </section>
             <MostRead articles={allArticles} />
           </div>
+          {widgetFeed && <AdskeeperWidget widgetId={widgetFeed} adType="feed" />}
         </>
       )}
     </div>

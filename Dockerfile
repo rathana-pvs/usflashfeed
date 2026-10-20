@@ -23,6 +23,14 @@ ENV DATABASE_URI=postgresql://placeholder:placeholder@placeholder:5432/placehold
 ENV NEXT_PUBLIC_SITE_URL=https://usflashfeed.com
 ENV NEXT_PUBLIC_SITE_NAME="US Flash Feed"
 
+# Public ad settings must be present when Next.js builds the browser bundle.
+ARG NEXT_PUBLIC_ADS_KEEPER_SITE_ID=1116942
+ARG NEXT_PUBLIC_ADS_KEEPER_WIDGET_SIDEBAR=2099712
+ARG NEXT_PUBLIC_ADS_KEEPER_WIDGET_IN_ARTICLE_1=2099686
+ARG NEXT_PUBLIC_ADS_KEEPER_WIDGET_IN_ARTICLE_2=
+ARG NEXT_PUBLIC_ADS_KEEPER_WIDGET_UNDER_ARTICLE=
+ARG NEXT_PUBLIC_ADS_KEEPER_WIDGET_FEED=2099685
+
 RUN npm run build
 
 # ── Stage 3: Runner (lean production image) ──────────────────────────

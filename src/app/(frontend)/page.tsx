@@ -5,12 +5,14 @@ import HeroSection from '@/components/sections/HeroSection'
 import RegionalNews from '@/components/sections/RegionalNews'
 import VideoHub from '@/components/sections/VideoHub'
 import MostRead from '@/components/sections/MostRead'
+import AdskeeperWidget from '@/components/ads/AdskeeperWidget'
 import { getArticles, getFeatured, getVideoArticles } from '@/lib/api-server'
 import { Article } from '@/types'
 import { mockArticles } from '@/lib/mockData'
 import { getMediaUrl } from '@/lib/utils'
 
 const siteName = process.env.NEXT_PUBLIC_SITE_NAME || 'US Flash Feed'
+const widgetFeed = process.env.NEXT_PUBLIC_ADS_KEEPER_WIDGET_FEED || ''
 
 export const metadata: Metadata = {
   title: { absolute: `${siteName} — The news moves fast. Stay ahead.` },
@@ -120,6 +122,7 @@ export default async function HomePage() {
             <MostRead articles={articles} />
           </div>
         </section>
+        {widgetFeed && <AdskeeperWidget widgetId={widgetFeed} adType="feed" />}
       </div>
     </>
   )

@@ -73,13 +73,21 @@ NEXT_PUBLIC_GA_ID=G-XXXXXXXXXX
 GOOGLE_GENERATIVE_AI_API_KEY=your_gemini_api_key
 
 # Adskeeper Widgets
-NEXT_PUBLIC_ADS_KEEPER_SITE_ID=1116412
-NEXT_PUBLIC_ADS_KEEPER_WIDGET_SIDEBAR=2099228
-NEXT_PUBLIC_ADS_KEEPER_WIDGET_IN_ARTICLE_1=2099225
+NEXT_PUBLIC_ADS_KEEPER_SITE_ID=1116942
+NEXT_PUBLIC_ADS_KEEPER_WIDGET_SIDEBAR=2099712
+NEXT_PUBLIC_ADS_KEEPER_WIDGET_IN_ARTICLE_1=2099686
 NEXT_PUBLIC_ADS_KEEPER_WIDGET_IN_ARTICLE_2=
 NEXT_PUBLIC_ADS_KEEPER_WIDGET_UNDER_ARTICLE=
-NEXT_PUBLIC_ADS_KEEPER_WIDGET_FEED=2099221
+NEXT_PUBLIC_ADS_KEEPER_WIDGET_FEED=2099685
 ```
+
+Adskeeper's loader is included once in the public site `<head>` in production.
+The feed widget (2099685) appears below the home, category, and article feeds;
+the in-article widget (2099686) appears after the first paragraph, and the
+sidebar widget (2099712) appears beside articles. Development uses labeled
+mock ads. Live ads require the domain to be added to your Adskeeper dashboard.
+These public settings are included at build time, so rebuild the app after
+changing them. Docker Compose passes them to the image build automatically.
 
 ### 3. Installation
 

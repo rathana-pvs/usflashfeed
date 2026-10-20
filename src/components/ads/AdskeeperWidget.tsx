@@ -73,13 +73,7 @@ const MOCK_ADS = [
   }
 ]
 
-// Module-level flag: _mgc.load must only fire ONCE per page session.
-// Calling it per-widget causes Adskeeper to treat the second+ calls as
-// duplicates and silently skip already-scanned slots (e.g. widget 2044156).
-// Instead, the FIRST widget to enter the viewport triggers the global scan;
 export default function AdskeeperWidget({ widgetId, className = '', adType, onlyShowOn }: AdskeeperWidgetProps) {
-  if (!widgetId) return null
-
   const isDev = process.env.NODE_ENV === 'development'
   const containerRef = useRef<HTMLDivElement>(null)
   const [isAllowedDevice, setIsAllowedDevice] = useState<boolean | null>(null)
@@ -97,7 +91,7 @@ export default function AdskeeperWidget({ widgetId, className = '', adType, only
   }, [onlyShowOn])
 
   useEffect(() => {
-    if (isDev) return
+    if (isDev || !widgetId) return
     // Wait until the device check resolved (null -> true/false) so we push exactly once per mount
     if (isAllowedDevice !== true) return
 
@@ -110,6 +104,8 @@ export default function AdskeeperWidget({ widgetId, className = '', adType, only
       console.error('Adskeeper load error:', e)
     }
   }, [widgetId, isDev, onlyShowOn, isAllowedDevice])
+
+  if (!widgetId) return null
 
   if (isDev) {
     const inArticle1 = process.env.NEXT_PUBLIC_ADS_KEEPER_WIDGET_IN_ARTICLE_1
