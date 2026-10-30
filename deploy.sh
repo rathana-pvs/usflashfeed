@@ -39,8 +39,8 @@ npm run generate:types || true
 # 5. Build Next.js & Payload application
 echo -e "${YELLOW}🔨 Building Next.js production bundle...${NC}"
 NODE_OPTIONS="--max-old-space-size=1536" npm run build
-cp -rn public .next/standalone/ 2>/dev/null || true
-cp -rn .next/static .next/standalone/.next/ 2>/dev/null || true
+cp -rf public .next/standalone/ 2>/dev/null || true
+cp -rf .next/static .next/standalone/.next/ 2>/dev/null || true
 
 # 6. Reload PM2 process
 echo -e "${YELLOW}♻️  Reloading PM2 application...${NC}"
